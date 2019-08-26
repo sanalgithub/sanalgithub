@@ -1,4 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-crm1></app-crm1>
-<!-- <app-manageleads></app-manageleads> -->
-<router-outlet></router-outlet>
+
+<div class="col-sm-12">
+
+    <h1 style="background-color: #1b2631;color: orange">
+        GOFREELAB </h1>
+</div>
+
+
+<div class="col-sm-12"></div>
+<div class="row">
+
+    <div class="col-sm-3">
+
+        <accordion>
+            <accordion-group heading="CSV Upload">
+            </accordion-group>
+            <accordion-group heading="Manage Leads">
+                <div class="accordion-toggle">
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/newleads']">Enter new leads</a><br><br>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/unprocessed']">Unprocessed leads</a><br><br>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/qualified']">Qualified leads</a><br><br>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/disqualified']">Disqualified leads</a><br><br>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/followupleads']">Followup Leads</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </accordion-group>
+            <accordion-group heading="Manage Enquiries">
+            </accordion-group>
+            <accordion-group heading="Batch Management">
+
+            </accordion-group>
+            <accordion-group heading="Manage Registration">
+
+            </accordion-group>
+        </accordion>
+    </div>
+    <div class="col-sm-9">
+        <router-outlet></router-outlet>
+    </div>
+   
+            
+

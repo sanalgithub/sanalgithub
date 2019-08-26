@@ -1,0 +1,23 @@
+.navbar {
+    height: 50px;
+    
+  }
+  
+.nav-item{
+    font-size: 25px;
+    color: white;
+}
+.navbar-nav{
+    background-color: 	#808080
+}
+.textarea{
+
+    width: 1%;
+    height:10%;
+}
+li{
+    list-style-type:none;
+   margin: 0;
+   padding:0;
+}
+
