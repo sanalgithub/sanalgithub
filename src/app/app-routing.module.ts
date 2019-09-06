@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { Crm1Component } from './crm1/crm1.component';
+
 import { NewleadsComponent } from './newleads/newleads.component';
 import { DisqualifiedComponent } from './disqualified/disqualified.component';
 import { UnprocessedComponent } from './unprocessed/unprocessed.component';
