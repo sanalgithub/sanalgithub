@@ -1,19 +1,54 @@
 <div class="container border space">
         <div class="row">
-            <div class="col sm-12" style="background-color: skyblue ;font-size: 30px;">
+            <div class="col sm-12" style="background-color: skyblue ;font-size: 30px; text-align: center">
                 Unprocessed Leads
             </div>
-            </div>
+            </div><br>
     
 
-        Filter By :  <input type="search" name="name" placeholder="Search here:">
+        Filter By :  <input type="text" name="name" class="form-control" placeholder="Search here:" [(ngModel)]="search">
         From Date :  <input type="date" name="date" placeholder="From Date:">
         To Date:<input type="date" name="date" placeholder="To Date:">
         <button type="button">Disp</button> 
         <div class="container border space">
             <div class="row">
-                <div class="col sm-12" style="background-color: skyblue ;font-size: 30px">
+                <div class="col sm-12" style="font-size: 15px">
+                   
+<table class="table" style="background-color:skyblue">
+    <tr>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Mobile</th>  
+        <th>Delete</th>
+        <th>Update</th>
+        
+    </tr>
+</table>
+   
+<table class="table">
+    <tr *ngFor="let l of lead , let i=index ;">
+        
+        <td>{{l.fname}}</td>
+        <td>{{l.email}}</td>
+        
+        <td>{{l.phno}}</td> 
+        <td> <fa name="trash" (click)="clearAll(i)" style="cursor:pointer"></fa></td> 
+       
+        <td> <i class="fa fa-pencil-square-o" aria-hidden="true" style="cursor:pointer" [routerLink]="['/newleads']"></i>
+         
+        </td>
+    </tr>
+   
 
     
+
+</table>
+
+    
+     </div>
+    </div>
+    
+    
+
              
      

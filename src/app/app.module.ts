@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,13 @@ import { DisqualifiedComponent } from './disqualified/disqualified.component';
 import { FollowupleadsComponent } from './followupleads/followupleads.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
+ 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +31,15 @@ import { RouterModule } from '@angular/router';
     QualifiedComponent,
     DisqualifiedComponent,
     FollowupleadsComponent,
-  
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccordionModule.forRoot(),
-    BrowserAnimationsModule,FormsModule,ReactiveFormsModule
+    BrowserAnimationsModule,FormsModule,ReactiveFormsModule,AngularFontAwesomeModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

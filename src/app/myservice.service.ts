@@ -1,28 +1,35 @@
 import { Injectable } from '@angular/core';
+import { Lead } from './lead';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyserviceService {
+
+  leadArray:Lead[]=[]
+
   private fname: string = '';
   private lname: string = '';
   private email: any = '';
-  private phno:any=''
+  private phno:any='';
 
   constructor() { }
 
-  publishData(fname,lname,email,phno) {
-    this.fname = fname;
-    this.lname=lname;
-    this.email=email;
-    this.phno=phno;
+  publishData(lead) {
+    
+   
+    this.leadArray=JSON.parse(localStorage.getItem('leads'))||[]
+    console.log('lead array',this.leadArray)
+    this.leadArray.push(lead)
+    
+
+    localStorage.setItem('leads',JSON.stringify(this.leadArray))
 
   }
 
   getData() {
-    return this.fname;
-    return this.lname;
-    return this.email;
-    return this.phno; 
+   return JSON.parse(localStorage.getItem('leads'))
+ 
   }
 }
+

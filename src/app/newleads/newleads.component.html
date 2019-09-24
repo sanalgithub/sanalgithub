@@ -7,14 +7,17 @@
 
 
     </div><br>
-    <form action="">
+    <form action="" #leadForm="ngForm">
         <div class="row">
 
             <div class="col-sm-6">
                 <div class="form-group">
+                       
+                        
+                              
                     <label for="firstn">*First Name:</label><br>
                     <input type="text" name="firstn" required pattern="^[A-Z]+$" class="form-control"
-                        #firstname='ngModel' [(ngModel)]="fname">
+                        #firstname='ngModel' [(ngModel)]="lead.fname">
 
                     <div *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)" class="alert alert-danger">
                         <div *ngIf="firstname.errors.required">
@@ -30,7 +33,7 @@
 
                     <label for="lastn">*Last Name:</label><br>
                     <input type="text" name="lastn" required pattern="^[A-Z]+$" class="form-control" #lastname='ngModel'
-                        [(ngModel)]="lname">
+                        [(ngModel)]="lead.lname">
 
 
                     <div *ngIf="lastname.invalid &&(lastname.dirty || lastname.touched)" class="alert alert-danger">
@@ -47,10 +50,10 @@
                     <textarea></textarea>
 
                     <h2 style="font-size:18px">*Select Rating </h2>
-                    superhot<input type="radio" name="climate" value="superhot"><br>
-                    hot<input type="radio" name="climate" value="hot"><br>
+                    superhot<input type="radio" name="climate" value="superhot" ><br>
+                    hot<input type="radio" name="climate" value="hot" ><br>
                     lukewarm<input type="radio" name="climate" value="lukewarm"> <br>
-                    cold<input type="radio" name="climate" value="cold"><br><br>
+                    cold<input type="radio" name="climate" value="cold" ><br><br>
 
                 </div>
 
@@ -59,7 +62,8 @@
                 <div class="form-group">
                     <label for="email">*Email:</label><br>
                     <input type="email" name="email" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-                        class="form-control" #mail='ngModel' [(ngModel)]="mailid">
+                        class="form-control" #mail='ngModel' [(ngModel)]="lead.email">
+                        
                     <div *ngIf="mail.invalid &&(mail.dirty || mail.touched)" class="alert alert-danger">
                         <div *ngIf="mail.errors.required && mail.touched">
 
@@ -70,7 +74,7 @@
                         </div>
                     </div><br>
                     <label for="phno">*Mobile:</label>
-                    <input type="text" name="phno" required pattern="^[0-9]+$" #phone1='ngModel' [(ngModel)]="phonenumber"
+                    <input type="text" name="phno" minlength="10" maxlength="10" required pattern="^[0-9]+$" #phone1='ngModel' [(ngModel)]="lead.phno"
                         class="form-control">
                     <div *ngIf="phone1.invalid &&(phone1.dirty || phone1.touched)" class="alert alert-danger">
 
@@ -78,6 +82,10 @@
 
                             Phone number is required
 
+                        </div>
+                        <div *ngIf="phone1.errors.minlength">
+
+                            Enter 10 digit mobile number
                         </div>
 
 
@@ -90,8 +98,8 @@
                     <input type="radio" name="check" value="Followup"> Followup<br><br>
 
                     <input type="button" style="margin:60px" size="100" value="Reset" class="btn btn-primary btn-lg"
-                        onclick="window.location.reload()">
-                    <input type="button" id="save"  size="100" onclick="onSubmit()"value="Save"
+                        (click)="reset(leadForm)">
+                    <input type="button" id="save"  size="100" (click)="onSubmit()" value="Save"
                         class="btn btn-primary btn-lg">
 
 
